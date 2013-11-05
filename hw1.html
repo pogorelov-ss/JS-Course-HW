@@ -7,7 +7,7 @@
 			<link rel="stylesheet" href="">
 	</head>
 	<body>
-		<header>
+		<header id="topHeader">
 			<h1>Wonderware System Platform</h1>
 		</header>
 		<nav>
@@ -26,6 +26,7 @@
 				<p>Whatever you do, Wonderware System Platform helps you do it BETTER, FASTER, SAFER, and CHEAPER.</p>
 				<figure>
 					<img src="SPA.jpg">
+					<del><p>....and some story  about  this picture  :)</p></del>
 				</figure>
 				<section>
 					<h3>Key Benefits</h3>
@@ -59,12 +60,41 @@
 			</article>
 		</section>
 		<section id="faq">
+			<h2>Wonderware system platform frequently asked questions</h2>
+			<h3>Compatibility and System Requirements</h3>
+			<dl>
+				<dt><strong>Q: </strong>What are the OS, Software, and Hardware requirements for installing Wonderware products?</dt>
+					<dd>
+						<p><strong>A: </strong>You select the Operating System based on the requirements defined by the system architecture. The OS requirements for
+						Development Node, Application Node, and GR Node are different. Some Operating Systems might be compatible with your Development Node and incompatible with the other nodes (and vice-versa).</p>
+						<p>
+						Similarly, SQL Server requirements for each product are different. To get a list of compatible OS and SQL Server version, refer to the ReadMe file of the specific Wonderware product you are installing. The document also provides the Minimum Hardware, Software, and Compatibility requirements for successful installation and operation of the system. The ReadMe file is located in the Wonderware installation CD and on the Wonderware Developer Network (WDN).</p>
+					</dd>
+			</dl>
+			<h3>Firewall and DCOM Settings</h3>
+			<dl>
+				<dt><strong>Q: </strong>Can firewalls be enabled on the system?</dt>
+					<dd><p><strong>A: </strong>It is best practice to turn off the firewall.</p></dd>
+				<dt><strong>Q: </strong>If firewall cannot be turned off, what precautions can I take?</dt>
+					<dd><p><strong>A: </strong>If a firewall needs to be on, ensure that the firewall allows required ports to communicate. In other words, make sure the firewall does not block the required ports.</p></dd>
+			</dl>
 		</section>
 		<section id="contacts">
+			<h2>Contacts</h2>
+			<address>
+				<p>Wonderware<br>26561 Rancho Pkwy. South<br>Lake Forest, CA 92630<br>Tel<a href="Tel:949-727-3200"> 949-727-3200</a><br><a href="http://global.wonderware.com">global.wonderware.com/</a></p>
+			</address>
 		</section>
 		<section id="register">
 		</section>
 		
-		<footer></footer>
+		<footer>
+			<a href="#topHeader">Top</a>
+			<a href="#about">about</a>
+			<a href="#faq">faq</a>
+			<a href="#contacts">contacts</a>
+			<a href="#register">register</a>
+			<p>@</p>
+		</footer>
 	</body>
 </html>
