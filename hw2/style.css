@@ -1,0 +1,28 @@
+body {
+    background-color: lightgrey;
+}
+h1 {
+    font-style: italic;
+}
+article p:first-letter {
+    font-size: 150%;
+}
+nav a {
+    color: green;
+}
+nav a:before {
+    content:"|";
+}
+nav>a:last-child:after {
+    content:"|";
+}
+a {
+    color: red;
+}
+a:hover {
+    font-size: 150%;
+}
+.QandAnswers {
+	background-color: lightgreen;
+	font-size: 120%;
+}
