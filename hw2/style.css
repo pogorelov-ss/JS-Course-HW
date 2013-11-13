@@ -9,21 +9,26 @@ article p:first-letter {
 }
 nav a {
     color: green;
+    border: 4px double black;
+    margin: 20px 30px 20px 30px;
+    padding: 10px;
+    vertical-align: middle;
 }
 nav a:before {
-    content:"|";
+    content:"_";
 }
-nav>a:last-child:after {
-    content:"|";
+nav>a:after {
+    content:"_";
 }
 a {
     color: red;
 }
 a:hover {
-    font-size: 150%;
+    font-size: 120%;
     color: blue;
+    background-color: grey;
 }
 .QandAnswers {
-	background-color: lightgreen;
-	font-size: 120%;
+    background-color: lightgreen;
+    font-size: 120%;
 }
