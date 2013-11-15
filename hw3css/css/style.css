@@ -1,0 +1,34 @@
+body {
+    background-color: lightgrey;
+}
+h1 {
+    font-style: italic;
+}
+article p:first-letter {
+    font-size: 150%;
+}
+nav a {
+    color: green;
+    border: 4px double black;
+    margin: 20px 30px 20px 30px;
+    padding: 10px;
+    vertical-align: middle;
+}
+nav a:before {
+    content:"_";
+}
+nav>a:after {
+    content:"_";
+}
+a {
+    color: red;
+}
+a:hover {
+    font-size: 120%;
+    color: blue;
+    background-color: grey;
+}
+.QandAnswers {
+    background-color: lightgreen;
+    font-size: 120%;
+}
