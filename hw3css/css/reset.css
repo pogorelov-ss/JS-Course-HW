@@ -4,3 +4,8 @@ body {
     background: white;
     /*font-size: 62.5%;*//*100%=16px -> 62.5% -> 1em=10px 1.2em = 12px*/
 }
+* {
+/*	list-style: none;
+	padding: 0px;
+	margin: 0px;*/
+}

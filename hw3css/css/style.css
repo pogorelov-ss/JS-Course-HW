@@ -1,34 +1,92 @@
 body {
-    background-color: lightgrey;
+    background: white;
+    font-family: Helvetica, sans-serif;
+    min-width: 400px;
 }
-h1 {
-    font-style: italic;
+section, header, footer {
+    width: 100%;
+    float: left;
+    background: white;
+    border: 2px solid black;
 }
-article p:first-letter {
-    font-size: 150%;
+header {
+    background: lightgrey;
+    margin: 2px 0px;
+    padding: 4px 0px;
 }
-nav a {
-    color: green;
-    border: 4px double black;
-    margin: 20px 30px 20px 30px;
-    padding: 10px;
-    vertical-align: middle;
+header li{
+    background: white;
 }
-nav a:before {
-    content:"_";
+header a{
+    padding: 10px 0;
+    display: block;
+    border: 2px solid black;
+    text-decoration: none;
+    color: black;
 }
-nav>a:after {
-    content:"_";
+footer a {
+  color: red;  
 }
-a {
-    color: red;
+nav ul, #feedback ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
 }
-a:hover {
-    font-size: 120%;
-    color: blue;
-    background-color: grey;
+.top li{
+    float: left;
+    width: 25%;
+    text-align: center;
+    margin: 0px;
 }
-.QandAnswers {
-    background-color: lightgreen;
-    font-size: 120%;
+article {
+    margin: 20px;
+}
+h2 {
+    font-weight: normal;
+    text-align: center;
+}
+article figure {
+    padding: 5px 15px;
+}
+
+footer{
+    background:  lightgrey; 
+}
+
+footer .nav{
+    float:left;
+    width: 50%;
+    padding: 20px 0px 20px 20px;
+    background: rgb(68,68,68);
+    border-right: 2px solid;
+}
+footer .nav li{
+    border-right: 2px solid;
+    float: left;
+}
+#feedback form * {
+    float: left;
+    margin: 2px;
+}
+#feedback button {
+    height: 25px;
+    width: 75px;
+    border: 2px solid;
+    border-radius: 6px;
+
+}
+
+@media screen and (min-width: 960px){
+    body {
+    max-width: 960px;
+    background: rgb(212,227,252);
+    margin: 0 auto;
+    }
+    footer nav li {
+    }
+}
+@media screen and (max-width: 854px){
+    .noMobile {
+        display: none;
+    }
 }
