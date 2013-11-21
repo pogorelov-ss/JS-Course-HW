@@ -15,7 +15,7 @@ var HW3 = HW3 || {
         {
             id: 2,
             name: 'John',
-            friends: [1, 3,55]
+            friends: [1, 3, 55]
         },
         {
             id: 3,
@@ -50,19 +50,19 @@ var HW3 = HW3 || {
 
         return JSON.parse(JSON.stringify(obj));
     },
-    findFriends:function findF (){
+    findFriends: function findF() {
         var id = [];
         var friends = [];
         id = id.concat(arguments[0]);
         console.log(id);
-            for (var i=0; i < this.people.length; i++){
-                if (~id.indexOf(this.people[i].id)){
-                    friends.push(this.people[i]);
-                }
+        for (var i = 0; i < this.people.length; i++) {
+            if (~id.indexOf(this.people[i].id)) {
+                friends.push(this.people[i]);
+            }
         }
         return friends;
     },
-    getFriends:function(id){
+    getFriends: function (id) {
         return HW3.findFriends(HW3.findFriends(id)[0].friends);
     }
 
