@@ -2,6 +2,29 @@
  * Created by sergei on 11/21/13.
  */
 var HW4 = HW4 || {
+    App:function(){
+        // работать заставил но окончательно так и не понял ... надо будет переделать реализацию
+        return{
+            init: function(selector) {
+                this.nodes = document.querySelectorAll(selector);
+                //console.log(this.nodes);
+                this.setListeners();
+            },
+            setListeners: function() {
+                [].slice.call(this.nodes).forEach(function(n){
+                    n.onclick = this.onClick.myBind(this);
+                }, this);
+            },
+
+            onClick: function(e) {
+                e = e || window.event;
+                var node = e.target || e.srcElement;
+                console.log(node);
+                // this - should be the main context - instance of App
+                // node - should be the node, that fires event
+            }
+        }
+    },
     PersonSimple: function () {
         return arguments[0];
     },
@@ -38,13 +61,30 @@ var HW4 = HW4 || {
         return elementList;
     }
 };
+
+//Добавляем в прототип Function свой метод
+if (typeof Function.prototype.myBind === 'undefined') {
+    Function.prototype.myBind = function(context){
+        // Put your code here
+        var __this = this;
+        return function() {
+            __this.apply(context, arguments);
+        }
+    };
+}
+//подключаем свое событие
+(new HW4.App()).init('div');
+
+/*
+проверка для 4го отмененного задания
 var $div = HW4.$('div');
 console.log($div);
 $div.height(100);
+*/
 
+
+//проверка заданий 2 3
 /*
-проверка
-
 var testObj1 = {name: 'Jack', age: '10', jump: function () {
     return "My name is " + this.name + " and I can jump.";
 }};
@@ -68,4 +108,5 @@ pp.setName('Ivan');
 pp.setAge(5);
 console.log(pp.getAge());
 console.log(pp.jump());
-console.log(pp.name);*/
+console.log(pp.name);//
+console.log(pp.jump);*/
