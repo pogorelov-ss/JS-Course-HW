@@ -4,7 +4,7 @@
 /*
  отладочные функции
  */
-var clog = console.log;
+//var console.log = console.log;
 /*
  Home work 5
  */
@@ -18,7 +18,7 @@ var HW5 = HW5 || {
         }
         this.selectedCell = element;
         this.selectedRow = HW5.selectedCell.parentNode;
-        clog(this.selectedRow);
+        console.log(this.selectedRow);
         element.className = 'selected';
     },
     init: function (selector) {
@@ -30,38 +30,38 @@ var HW5 = HW5 || {
     keyHandler: {
         add: function () {
             HW5.keyHandler = function (event) {
-                clog(event);
+                console.log(event);
                 switch (event.keyCode) {
                     case 13:
                     {
                         if (event.shiftKey) {
-                            clog('Shift+Enter')
+                            console.log('Shift+Enter')
                         }
                         else {
-                            clog('Enter')
+                            console.log('Enter')
                         }
                     }
                         break;
                     case 46:
                     {
                         if (event.shiftKey) {
-                            clog('Shift+Delete')
+                            console.log('Shift+Delete')
                         }
                         else {
-                            clog('Delete')
+                            console.log('Delete')
                         }
                     }
                         break;
-                    case 37:clog('<');
+                    case 37:console.log('<');
                         break;
-                    case 38:clog('up');
+                    case 38:console.log('up');
                         break;
-                    case 39:clog('>');
+                    case 39:console.log('>');
                         break;
-                    case 40:clog('down');
+                    case 40:console.log('down');
                         break;
                     default:
-                        clog('non');
+                        console.log('non');
                 }
 
             };
@@ -71,8 +71,8 @@ var HW5 = HW5 || {
     mouseHandler: {
         add: function (element) {
             HW5.mouseHandler = function(event){
-                clog(event);
-                clog(event.originalTarget);
+                console.log(event);
+                console.log(event.originalTarget);
                 HW5.select(event.originalTarget);
             };
             element.onclick = HW5.mouseHandler;
@@ -80,5 +80,5 @@ var HW5 = HW5 || {
     }
 };
 
-clog('test');
+console.log('test');
 HW5.init('.exel');
