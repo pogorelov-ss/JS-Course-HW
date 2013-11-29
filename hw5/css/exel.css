@@ -1,0 +1,11 @@
+.exel {
+    border: 1px solid grey;
+    width: 960px;
+}
+.exel td{
+    border: 1px solid grey;
+    height: 20px;
+}
+.selected {
+    background-color: green;
+}
