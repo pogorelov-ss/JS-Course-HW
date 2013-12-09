@@ -2,6 +2,7 @@
  * Created by sergei on 11/25/13.
  Home work 5
  */
+
 var HW5 = HW5 || {
     tableElement: null,
     selectedCell:null,
