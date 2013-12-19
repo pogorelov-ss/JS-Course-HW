@@ -5,8 +5,8 @@
 
 var HW5 = HW5 || {
     tableElement: null,
-    selectedCell:null,
-    selectedRow:null,
+    activeCell:null,
+    activeRow:null,
     rows:1,
     columns:1,
     Cursor:{row:1,column:1},
@@ -14,9 +14,9 @@ var HW5 = HW5 || {
         this.deselectCell();
         this.deselectRow();
         this.deselectTable();
-        this.selectedCell = element;
-        this.selectedRow = this.selectedCell.parentNode;
-        console.log(this.selectedRow.rowIndex);
+        this.activeCell = element;
+        this.activeRow = this.activeCell.parentNode;
+        console.log(this.activeRow.rowIndex);
         element.classList.toggle('selected');
     },
     selectRow:function(element){
@@ -24,7 +24,7 @@ var HW5 = HW5 || {
         this.deselectTable();
         this.deselectRow();
         element.classList.toggle('selected');
-        this.selectedRow = element;
+        this.activeRow = element;
     },
     selectTable:function(){
         this.deselectCell();
@@ -32,16 +32,16 @@ var HW5 = HW5 || {
         this.tableElement.firstElementChild.classList.toggle('selected');
     },
     deselectCell:function(){
-        if(this.selectedCell!=null){
-            this.selectedCell.className = 'cell';
+        if(this.activeCell!=null){
+            this.activeCell.className = 'cell';
         }
-        //this.selectedCell = null;
+        //this.activeCell = null;
     },
     deselectRow:function(){
-        if(this.selectedRow!=null){
-            this.selectedRow.className = 'row';
+        if(this.activeRow!=null){
+            this.activeRow.className = 'row';
         }
-        //this.selectedRow = null;
+        //this.activeRow = null;
     },
     deselectTable:function(){
         this.tableElement.firstElementChild.className = 'tbody';
@@ -66,7 +66,7 @@ var HW5 = HW5 || {
             tableBody.children[i].insertCell(-1).className='cell';
         }
         this.columns++;
-        //HW5.selectedRow.insertCell(-1).className = 'cell';
+        //HW5.activeRow.insertCell(-1).className = 'cell';
     },
     removeRow:function(){
         HW5.tableElement.deleteRow(-1);
@@ -81,33 +81,33 @@ var HW5 = HW5 || {
     },
     moveCursorLR:function(direction){//+-n
         this.deselectRow();
-        var CellIndex = this.selectedCell.cellIndex,
+        var CellIndex = this.activeCell.cellIndex,
             nextCell;
-        if (this.selectedCell.classList.contains('selected')){
-            nextCell = this.selectedRow.children[CellIndex+direction];
+        if (this.activeCell.classList.contains('selected')){
+            nextCell = this.activeRow.children[CellIndex+direction];
         }
         else {
-            nextCell = this.selectedRow.children[CellIndex];
+            nextCell = this.activeRow.children[CellIndex];
         }
         if (nextCell) this.selectCell(nextCell);
-        else this.selectRow(this.selectedRow);
+        else this.selectRow(this.activeRow);
     },
     moveCursorUD:function(direction){//+-n
-        var RowIndex = this.selectedRow.rowIndex,
+        var RowIndex = this.activeRow.rowIndex,
             nextRow;
         if (this.tableElement.firstElementChild.classList.contains('selected')){
-            this.selectRow(this.selectedRow);
-            //this.selectedCell=this.selectedRow.firstElementChild;
+            this.selectRow(this.activeRow);
+            //this.activeCell=this.activeRow.firstElementChild;
             return
         }
         nextRow = this.tableElement.firstElementChild.children[RowIndex+direction];
         if (nextRow){
-            if (this.selectedRow.classList.contains('selected')){
+            if (this.activeRow.classList.contains('selected')){
                 this.selectRow(nextRow);
             }
             else{
-                this.selectedRow = nextRow;
-                this.selectCell(nextRow.children[this.selectedCell.cellIndex])
+                this.activeRow = nextRow;
+                this.selectCell(nextRow.children[this.activeCell.cellIndex])
             }
         }
         else{
@@ -130,7 +130,7 @@ var HW5 = HW5 || {
                         else {
                             console.log('Enter');
                             HW5.addRow();
-                            //console.log(HW5.selectedRow.rowIndex);
+                            //console.log(HW5.activeRow.rowIndex);
                         }
                     }
                         break;
@@ -169,7 +169,7 @@ var HW5 = HW5 || {
     mouseHandler: function(event){
         console.log(event);
         console.log(event.target);
-        console.log('this.selectedCell '+HW5.selectedCell);
+        console.log('this.activeCell '+HW5.activeCell);
         if (event.target.className == 'cell'){
             HW5.selectCell(event.target);
 

@@ -54,7 +54,7 @@ var HW3 = HW3 || {
         var id = [];
         var friends = [];
         id = id.concat(arguments[0]);
-        console.log(id);
+        //console.log(id);
         for (var i = 0; i < this.people.length; i++) {
             if (~id.indexOf(this.people[i].id)) {
                 friends.push(this.people[i]);
@@ -68,10 +68,10 @@ var HW3 = HW3 || {
 
 };
 
-//console.log('t1');
-//console.log(HW3.getObject('a.d', HW3.myObj1));
-//console.log(HW3.getObject('a', 1));
-//console.log('t2');
-//console.log(HW3.deepCopy(HW3.myObj1));
-//console.log('t3');
+console.log('t1');
+console.log(HW3.getObject('a.d', HW3.myObj1));
+console.log(HW3.getObject('a', 1));
+console.log('t2');
+console.log(HW3.deepCopy(HW3.myObj1));
+console.log('t3');
 console.log(HW3.getFriends(2));
