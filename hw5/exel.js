@@ -9,14 +9,7 @@ var HW5 = HW5 || {
     activeRow: null,
     rows: 1,
     columns: 1,
-    keys: {
-        enter: 13,
-        del: 46,
-        up: 38,
-        left: 37,
-        right: 39,
-        down: 40
-    },
+
     selectCell: function (element) {
         this.deselectCell();
         this.deselectRow();
@@ -126,9 +119,17 @@ var HW5 = HW5 || {
     keyHandler: {//тут я немного извратился с изменением объекта .. и надо б поменять добавление обработчика
         add: function () {
             HW5.keyHandler = function (event) {
+                var keys = {
+                    enter: 13,
+                    del: 46,
+                    up: 38,
+                    left: 37,
+                    right: 39,
+                    down: 40
+                };
                 console.log(event);
                 switch (event.keyCode) {
-                    case 13:
+                    case keys.enter:
                     {
                         if (event.shiftKey) {
                             console.log('Shift+Enter');
@@ -141,7 +142,7 @@ var HW5 = HW5 || {
                         }
                     }
                         break;
-                    case 46:
+                    case keys.del:
                     {
                         if (event.shiftKey) {
                             console.log('Shift+Delete');
@@ -153,19 +154,19 @@ var HW5 = HW5 || {
                         }
                     }
                         break;
-                    case 37:
+                    case keys.left:
                         console.log('<');
                         HW5.moveCursorLR(-1);
                         break;
-                    case 38:
+                    case keys.up:
                         console.log('up');
                         HW5.moveCursorUD(-1);
                         break;
-                    case 39:
+                    case keys.right:
                         console.log('>');
                         HW5.moveCursorLR(1);
                         break;
-                    case 40:
+                    case keys.down:
                         console.log('down');
                         HW5.moveCursorUD(1);
                         break;
