@@ -5,11 +5,18 @@
 
 var HW5 = HW5 || {
     tableElement: null,
-    activeCell:null,
-    activeRow:null,
-    rows:1,
-    columns:1,
-    Cursor:{row:1,column:1},
+    activeCell: null,
+    activeRow: null,
+    rows: 1,
+    columns: 1,
+    keys: {
+        enter: 13,
+        del: 46,
+        up: 38,
+        left: 37,
+        right: 39,
+        down: 40
+    },
     selectCell: function (element) {
         this.deselectCell();
         this.deselectRow();
@@ -19,31 +26,31 @@ var HW5 = HW5 || {
         console.log(this.activeRow.rowIndex);
         element.classList.toggle('selected');
     },
-    selectRow:function(element){
+    selectRow: function (element) {
         this.deselectCell();
         this.deselectTable();
         this.deselectRow();
         element.classList.toggle('selected');
         this.activeRow = element;
     },
-    selectTable:function(){
+    selectTable: function () {
         this.deselectCell();
         this.deselectRow();
         this.tableElement.firstElementChild.classList.toggle('selected');
     },
-    deselectCell:function(){
-        if(this.activeCell!=null){
+    deselectCell: function () {
+        if (this.activeCell != null) {
             this.activeCell.className = 'cell';
         }
         //this.activeCell = null;
     },
-    deselectRow:function(){
-        if(this.activeRow!=null){
+    deselectRow: function () {
+        if (this.activeRow != null) {
             this.activeRow.className = 'row';
         }
         //this.activeRow = null;
     },
-    deselectTable:function(){
+    deselectTable: function () {
         this.tableElement.firstElementChild.className = 'tbody';
     },
     init: function (selector) {
@@ -52,39 +59,39 @@ var HW5 = HW5 || {
         this.tableElement.onclick = this.mouseHandler;//шансов что на нашу табличку еще ктонить повесит онклик немного?
         this.selectCell(this.tableElement.firstElementChild.firstElementChild.firstElementChild);
     },
-    addRow:function(){
+    addRow: function () {
         var row = HW5.tableElement.insertRow(-1);
         row.className = 'row';//.insertCell(-1).className='cell';
         for (var i = 0; i < this.columns; i++) {
-            row.insertCell(-1).className='cell';
+            row.insertCell(-1).className = 'cell';
         }
         this.rows++;
     },
-    addColumn:function(){
+    addColumn: function () {
         var tableBody = this.tableElement.firstElementChild;
         for (var i = 0; i < this.rows; i++) {
-            tableBody.children[i].insertCell(-1).className='cell';
+            tableBody.children[i].insertCell(-1).className = 'cell';
         }
         this.columns++;
         //HW5.activeRow.insertCell(-1).className = 'cell';
     },
-    removeRow:function(){
+    removeRow: function () {
         HW5.tableElement.deleteRow(-1);
         this.rows--;
     },
-    removeColumn:function(){
+    removeColumn: function () {
         var tableBody = this.tableElement.firstElementChild;
         for (var i = 0; i < this.rows; i++) {
             tableBody.children[i].deleteCell(-1);
         }
         this.columns--;
     },
-    moveCursorLR:function(direction){//+-n
+    moveCursorLR: function (direction) {//+-n
         this.deselectRow();
-        var CellIndex = this.activeCell.cellIndex,
+        var CellIndex = (0 > this.activeCell.cellIndex) ? this.activeCell.childElementCount : this.activeCell.cellIndex,
             nextCell;
-        if (this.activeCell.classList.contains('selected')){
-            nextCell = this.activeRow.children[CellIndex+direction];
+        if (this.activeCell.classList.contains('selected')) {
+            nextCell = this.activeRow.children[CellIndex + direction];
         }
         else {
             nextCell = this.activeRow.children[CellIndex];
@@ -92,25 +99,25 @@ var HW5 = HW5 || {
         if (nextCell) this.selectCell(nextCell);
         else this.selectRow(this.activeRow);
     },
-    moveCursorUD:function(direction){//+-n
+    moveCursorUD: function (direction) {//+-n
         var RowIndex = this.activeRow.rowIndex,
             nextRow;
-        if (this.tableElement.firstElementChild.classList.contains('selected')){
+        if (this.tableElement.firstElementChild.classList.contains('selected')) {
             this.selectRow(this.activeRow);
             //this.activeCell=this.activeRow.firstElementChild;
             return
         }
-        nextRow = this.tableElement.firstElementChild.children[RowIndex+direction];
-        if (nextRow){
-            if (this.activeRow.classList.contains('selected')){
+        nextRow = this.tableElement.firstElementChild.children[RowIndex + direction];
+        if (nextRow) {
+            if (this.activeRow.classList.contains('selected')) {
                 this.selectRow(nextRow);
             }
-            else{
+            else {
                 this.activeRow = nextRow;
                 this.selectCell(nextRow.children[this.activeCell.cellIndex])
             }
         }
-        else{
+        else {
             this.selectTable();
         }
 
@@ -146,16 +153,20 @@ var HW5 = HW5 || {
                         }
                     }
                         break;
-                    case 37:console.log('<');
+                    case 37:
+                        console.log('<');
                         HW5.moveCursorLR(-1);
                         break;
-                    case 38:console.log('up');
+                    case 38:
+                        console.log('up');
                         HW5.moveCursorUD(-1);
                         break;
-                    case 39:console.log('>');
+                    case 39:
+                        console.log('>');
                         HW5.moveCursorLR(1);
                         break;
-                    case 40:console.log('down');
+                    case 40:
+                        console.log('down');
                         HW5.moveCursorUD(1);
                         break;
                     default:
@@ -166,11 +177,11 @@ var HW5 = HW5 || {
             document.onkeydown = HW5.keyHandler;
         }
     },
-    mouseHandler: function(event){
+    mouseHandler: function (event) {
         console.log(event);
         console.log(event.target);
-        console.log('this.activeCell '+HW5.activeCell);
-        if (event.target.className == 'cell'){
+        console.log('this.activeCell ' + HW5.activeCell);
+        if (event.target.className == 'cell') {
             HW5.selectCell(event.target);
 
         }
