@@ -187,8 +187,27 @@ var HW5 = HW5 || {
 
         }
 
+    },//
+    Delegate:function(){
+        return function(/* String */childSelector, /* String */eventType, /* Function */handler){
+            this.addEventListener(eventType,function(e){
+                var target = e && e.target || event.srcElement,
+                childsArr = document.querySelectorAll(childSelector);
+                for (var i = 0; i < childsArr.length; i++) {
+                    if(target == childsArr[i]){
+                        handler(target);
+                        return
+                    }
+                }
+                //return false;
+            },false);
+        };
     }
 };
 
 console.log('test');
 HW5.init('.exel');
+
+var cont1 = document.querySelector('.container1');
+cont1.delegate = new HW5.Delegate;//HW5.delegate;
+cont1.delegate('.cell','click',function(element){console.log('event '+element+' id '+ element.id)});
