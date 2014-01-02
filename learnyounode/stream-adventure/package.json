@@ -1,0 +1,11 @@
+{
+    "name": "stream-adventure",
+    "description": "nodeschool stream-adventure",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "through": "latest",
+        "split": "latest",
+        "concat-stream": "latest"
+    }
+}
