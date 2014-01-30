@@ -1,0 +1,22 @@
+{
+  "name": "bowergrunt",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pogorelov-ss/JS-Course-HW",
+  "description": "bower test 15",
+  "main": "lib.js",
+  "keywords": [
+    "uh"
+  ],
+  "authors": [
+    "i"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

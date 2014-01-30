@@ -5,7 +5,12 @@
     "private": true,
     "dependencies": {
         "through": "latest",
+        "through2-map" : "latest",
         "split": "latest",
-        "concat-stream": "latest"
+        "concat-stream": "latest",
+        "request" : "latest",
+        "websocket-stream" : "latest",
+        "trumpet" : "latest",
+        "duplexer" : "latest"
     }
 }

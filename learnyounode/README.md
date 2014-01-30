@@ -1,2 +1,2 @@
 http://nodeschool.io/#learn-you-node
-http://nodeschool.io/#stream-adventure
+htttp://nodeschool.io/#stream-adventure

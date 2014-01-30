@@ -1,0 +1,17 @@
+{
+  "name": "hw3css",
+  "version": "0.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.2"
+  },
+  "devDependencies": {
+    "load-grunt-tasks": "~0.2.1"
+  },
+  "scripts": {
+    "test": "npm install grunt-contrib-concat --save-dev"
+  },
+  "author": "",
+  "license": "ISC"
+}
